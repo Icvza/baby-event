@@ -6,10 +6,9 @@ The app will have:
 Main attributes:
     -Users: have many events, have many babies
     -event : Belongs to Users:
-    -Babies: belongs to Users  
+    -Babies: belongs to Users  has many events through users 
 
 UX-flow:
-
     -Homescreen will have the ablilty to allow a user to sighn up to become a member of the app
         -Try to make the homescreen look nice with some CSS the home screen can not show any information about post - This is a user only app so only the user it self can see the content create
         -Learn more about Layout to see what kind of code I can save from writing 
