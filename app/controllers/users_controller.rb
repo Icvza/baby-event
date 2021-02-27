@@ -1,43 +1,42 @@
 class UsersController < ApplicationController
 
-
   get "/signup" do
     erb :"/users/signup.html"
   end
 
   post "/signup" do
     user = User.new(params)
-    form_data = params.values
-    empty = ""
-    if params.has_value?(empty)
-      redirect "/signup"
+    checker = !User.find_by(email: params["email"]) && !User.find_by(username: params["username"])
+    if checker && user.save
+      session[:user_id] = user.id
+      redirect '/events'
     else
-      "NO"
+      redirect '/signup'
     end
   end
 
-    # # GET: /users/new
-    # get "/users/new" do
-    #   erb :"/users/new.html"
-    # end
+  get "/login" do 
+    erb :"/users/login.html"
+  end
 
-  # # GET: /users/5
-  # get "/users/:id" do
-  #   erb :"/users/show.html"
-  # # end
+  post "/login" do 
+    user = User.find_by_username(params[:username])
 
-  # # GET: /users/5/edit
-  # get "/users/:id/edit" do
-  #   erb :"/users/edit.html"
-  # end
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect '/events'
+    else
+      redirect '/login'
+    end
+  end
 
-  # # PATCH: /users/5
-  # patch "/users/:id" do
-  #   redirect "/users/:id"
-  # end
+  get '/logout' do
+    session.clear
+    redirect '/login'
+  end
 
-  # # DELETE: /users/5/delete
-  # delete "/users/:id/delete" do
-  #   redirect "/users"
-  # end
+
+
+
+
 end
