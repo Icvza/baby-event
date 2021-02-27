@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    binding.pry
+    "binding.pry"
   end
 
 end
