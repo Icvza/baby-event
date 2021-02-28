@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     checker = !User.find_by(email: params["email"]) && !User.find_by(username: params["username"])
     if checker && user.save
       session[:user_id] = user.id
-      redirect '/events'
+      redirect '/babies/new'
     else
       redirect '/signup'
     end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect '/events'
+      redirect '/profile'
     else
       redirect '/login'
     end
@@ -33,6 +33,10 @@ class UsersController < ApplicationController
   get '/logout' do
     session.clear
     redirect '/login'
+  end
+
+  get '/profile' do
+    erb :"/users/profile.html"  
   end
 
 

@@ -10,6 +10,17 @@ class BabiesController < ApplicationController
     erb :"/babies/new.html"
   end
 
+  post "/new_baby" do 
+    @baby = Baby.new(params)
+    @baby.user_id = session[:user_id]
+    if @baby.save
+      redirect '/profile'
+    else
+      redirect "/babies/new"
+      end
+  end
+
+
   # POST: /babies
   post "/babies" do
     redirect "/babies"
