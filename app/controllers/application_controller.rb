@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
   end
 
   def logged_in?
-    !!session[:author_id]
+    !!session[:user_id]
   end 
 
   def current_user
@@ -23,8 +23,15 @@ class ApplicationController < Sinatra::Base
   end
 
   def user_babys
-    @user_babys ||= Baby.find_by_user_id(session[:user_id])
+    @user_babys ||= Baby.where(session[:user_id])
   end
+
+  def users_babies
+    @all_baby = Baby.where(user_id: session[:user_id])
+  end
+
+
+
   
 
 
