@@ -36,7 +36,11 @@ class UsersController < ApplicationController
   end
 
   get '/profile' do
-    erb :"/users/profile.html"  
+    if logged_in?
+     erb :"/users/profile.html"
+     else
+      redirect '/login'
+     end
   end
 
 

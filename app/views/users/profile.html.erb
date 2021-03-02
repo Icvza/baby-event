@@ -1,11 +1,23 @@
-<h1>PROFILE PAGE</h1>
+<h1><%="#{current_user.name}"%></h1>
 <br> <a href="http://127.0.0.1:9393/logout" target="_blank"> logout</a>
 <br> <a href="http://127.0.0.1:9393/babies/new" target="_blank"> Add a new baby</a>
 <br> <a href="http://127.0.0.1:9393/events/new" target="_blank"> Log a new event </a>
-<h2> <%="#{current_user.name}"%>  </h2>
-<%binding.pry%>
+<br>
+<br>
 
-<h4> <%= "#{users_babies.name}"%> </h4>
+<br> KIDS NAME 
+<br>
+<br>
+
+<%user_babies.each do |name|%>
+<li><%=name%>
+<%end %>
+<% %>
+<% %>
+<% %>
+<% %>
+<% %>
+<% %>
 
 
 

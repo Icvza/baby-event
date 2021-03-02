@@ -22,12 +22,21 @@ class ApplicationController < Sinatra::Base
     @current_user ||= User.find_by_id(session[:user_id])
   end
 
-  def user_babys
-    @user_babys ||= Baby.where(session[:user_id])
-  end
+  # def user_babys
+  #   @user_babys ||= Baby.where(session[:user_id])
+  # end
 
   def users_babies
     @all_baby = Baby.where(user_id: session[:user_id])
+  end
+
+
+  def user_babies
+    y = users_babies
+    w = y.map {|baby| [baby.name, baby] }.to_h
+    n = w.collect do |name, age|
+      name
+    end  
   end
 
 
