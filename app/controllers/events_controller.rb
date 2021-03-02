@@ -12,7 +12,13 @@ class EventsController < ApplicationController
 
   # POST: /events
   post "/events" do
-    redirect "/events"
+    @event = Event.new(params)
+    @event.user_id = session[:user_id]
+    if @event.save
+      redirect '/event/new'
+    else
+      redirect '/profile'
+    end
   end
 
   # GET: /events/5
