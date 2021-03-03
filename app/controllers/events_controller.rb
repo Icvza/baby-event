@@ -15,6 +15,7 @@ class EventsController < ApplicationController
   post "/events" do
     @event = Event.new(params)
     @event.user_id = session[:user_id]
+    binding.pry
     if @event.save
       redirect '/profile'
     else

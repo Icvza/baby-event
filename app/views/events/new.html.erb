@@ -10,7 +10,7 @@ Content:<textarea name="content"></textarea>
 
    <% @all_baby.each do |baby| %>
 
-        <input type="checkbox" name="baby_ids[]" value="<%= baby.id %>"> <%=baby.name%>
+        <input type="checkbox" name="baby_id[]" value="<%= baby.id %>"> <%=baby.name%>
   <%end%>
   <input type=submit value="Log event">
 
