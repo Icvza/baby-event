@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 
   # GET: /events/new
   get "/events/new" do
+    @all_baby = Baby.where(user_id: session[:user_id])
     erb :"/events/new.html"
   end
 
@@ -15,9 +16,9 @@ class EventsController < ApplicationController
     @event = Event.new(params)
     @event.user_id = session[:user_id]
     if @event.save
-      redirect '/event/new'
-    else
       redirect '/profile'
+    else
+      redirect '/event/new'
     end
   end
 

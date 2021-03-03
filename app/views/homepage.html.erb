@@ -2,5 +2,13 @@
 
 
 <br> <a href="http://127.0.0.1:9393/signup" target="_blank"> signup</a> 
+
+
+
+
+<%if logged_in?%>
+<br> <a href="http://127.0.0.1:9393/logout" target="_blank"> logout</a>
+<%else%>
 <br> <a href="http://127.0.0.1:9393/login" target="_blank"> login</a> 
-<br> <a href="http://127.0.0.1:9393/logout" target="_blank"> logout</a> 
+<%end%>
+

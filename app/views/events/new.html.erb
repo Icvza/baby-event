@@ -1,6 +1,6 @@
 <h1>Create a new event for BABYS NAME </h1>
 
-<%binding.pry%>
+
 
 <form action="/events" method="post">
 
@@ -8,16 +8,22 @@ Content:<textarea name="content"></textarea>
 
 <br> Date:<input type=datetime name="time">
 
-<input type=submit value="Log event">
+   <% @all_baby.each do |baby| %>
+
+        <input type="checkbox" name="baby_ids[]" value="<%= baby.id %>"> <%=baby.name%>
+  <%end%>
+  <input type=submit value="Log event">
 
 </form>
 
 
-<%
 
 
 
-%>
+
+
+
+
 
 
 

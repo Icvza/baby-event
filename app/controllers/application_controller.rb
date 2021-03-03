@@ -14,6 +14,8 @@ class ApplicationController < Sinatra::Base
     erb :"/homepage.html" 
   end
 
+  helpers do 
+
   def logged_in?
     !!session[:user_id]
   end 
@@ -39,10 +41,7 @@ class ApplicationController < Sinatra::Base
     end  
   end
 
-
-
-  
-
+end
 
 
 
