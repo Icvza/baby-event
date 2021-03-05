@@ -1,11 +1,11 @@
 <li>
 <% l = get_event %>
-<%= @event.content %>
+your log :<%= @event.content %>
 <% @baby = Baby.find_by_id(get_event.baby_id) %>
 <li>
-<%= @baby.name %>
+baby name :<%= @baby.name %>
 <li>
-<%= @baby.DOB %>
+baby dob<%= @baby.DOB %>
 
 
 

@@ -41,7 +41,11 @@ class EventsController < ApplicationController
 
   # PATCH: /events/5
   patch "/events/:id" do
-    redirect "/profile"
+    get_event
+    redirect_if_not_authorized
+    binding.pry
+    @event.update 
+    erb :"/events/show.html"
   end
 
   # DELETE: /events/5/delete

@@ -1,18 +1,19 @@
-<h1>Create a new event for BABYS NAME </h1>
-
+<h1> Log the new event </h1>
 
 
 <form action="/events" method="post">
 
-Content:<textarea name="content"></textarea>
+<br>Content:<textarea name="content"></textarea>
 
 <br> Date:<input type=datetime name="time">
 
-   <% @all_baby.each do |baby| %>
+WHOOOOOOO DID IT?
 
+   <% @all_baby.each do |baby| %>
         <input type="checkbox" name="baby_id" value="<%= baby.id %>"> <%=baby.name%>
-  <%end%>
-  <input type=submit value="Log event">
+   <%end%>
+
+<input type=submit value="Log event">
 
 </form>
 
