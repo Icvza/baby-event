@@ -12,10 +12,13 @@
 <%user_babies.each do |name|%>
 <li><%=name%>
 <%end %>
-
-<%user_events.each do |event|%>
-<% %>
-<% %>
+<li>
+<%f = user_events.map { |x| x.content}%>
+<%if f.empty?%>
+    Once you've created an event it will show here 
+   <% else %>
+    <%= f %>
+<% end %>
 <% %>
 <% %>
 <% %>

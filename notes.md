@@ -41,6 +41,24 @@ DB's-structure:
         - Foreign_id key for babies
 
 
+        Things that need to be done:
+
+
+        - Edits Useres can edit the events 
+        - Useres can edit their babies see
+        - Delete useres can delete thier events 
+        - Delete users can delete baby 
+    
+Will not be using "event" view page because post will be only be shown to users therefore the /events route should only be accesseable when logged in so the page shoyuld so 
+1- if logged in show all events belonging to a user 
+2- if not logged in reditect to login sigh up
+
+
+
+
+    HTML/CSS: style and page all pages. 
+
+
     
 
 

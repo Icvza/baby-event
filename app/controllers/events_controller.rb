@@ -1,11 +1,15 @@
 class EventsController < ApplicationController
 
-  # GET: /events
+ 
   get "/events" do
-    erb :"/events/index.html"
+    @events = Event.where(user_id: session[:user_id])
+    if logged_in?
+      erb :"/events/index.html"
+    else
+      redirect 'login'
+    end
   end
 
-  # GET: /events/new
   get "/events/new" do
     @all_baby = Baby.where(user_id: session[:user_id])
     erb :"/events/new.html"
@@ -16,7 +20,6 @@ class EventsController < ApplicationController
     @event = Event.new(params)
     @event.user_id = session[:user_id]
     @event.baby_id = params[:baby_id]
-    binding.pry
     if @event.save
       redirect '/profile'
     else
@@ -26,21 +29,37 @@ class EventsController < ApplicationController
 
   # GET: /events/5
   get "/events/:id" do
+    get_event
     erb :"/events/show.html"
   end
 
   # GET: /events/5/edit
   get "/events/:id/edit" do
+    get_event
     erb :"/events/edit.html"
   end
 
   # PATCH: /events/5
   patch "/events/:id" do
-    redirect "/events/:id"
+    redirect "/profile"
   end
 
   # DELETE: /events/5/delete
   delete "/events/:id/delete" do
-    redirect "/events"
+    redirect "/profile"
   end
+
+private
+
+  def get_event
+    @event = Event.find_by(id:params[:id])
+  end
+
+  def redirect_if_not_authorized
+    if @event.user_id != current_user
+        flash[:error] = "You cant make this edit, you don't own this"
+        redirect '/'
+    end
+  end 
+
 end
