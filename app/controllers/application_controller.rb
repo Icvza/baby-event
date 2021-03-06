@@ -24,19 +24,13 @@ class ApplicationController < Sinatra::Base
     user_events = Event.where(user_id: session[:user_id])
   end
 
-
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
   end
 
-  # def user_babys
-  #   @user_babys ||= Baby.where(session[:user_id])
-  # end
-
   def users_babies
     @all_baby = Baby.where(user_id: session[:user_id])
   end
-
 
   def user_babies
     y = users_babies
@@ -47,7 +41,5 @@ class ApplicationController < Sinatra::Base
   end
 
 end
-
-
 
 end

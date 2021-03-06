@@ -1,18 +1,13 @@
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/stylesheet/main.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/public/stylesheet/main.css">
     <title>Baby Event Logger</title>
 </head>
 <body>
-    <h1>Hello from layout</h1>
-        <% flash.keys.each do |type| %>
-            <div data-alert class="flash <%= type %> alert-box radius">
-                <%= flash[type] %>
-            </div>
-        <% end %>
-
     <%= yield %>
 </body>
 </html>

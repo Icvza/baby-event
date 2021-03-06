@@ -15,7 +15,6 @@ class EventsController < ApplicationController
     erb :"/events/new.html"
   end
 
-  # POST: /events
   post "/events" do
     @event = Event.new(params)
     @event.user_id = session[:user_id]
@@ -27,31 +26,35 @@ class EventsController < ApplicationController
     end
   end
 
-  # GET: /events/5
   get "/events/:id" do
     get_event
     erb :"/events/show.html"
   end
 
-  # GET: /events/5/edit
   get "/events/:id/edit" do
     get_event
     erb :"/events/edit.html"
   end
 
-  # PATCH: /events/5
   patch "/events/:id" do
     get_event
     redirect_if_not_authorized
-    binding.pry
-    @event.update 
-    erb :"/events/show.html"
+    @event.update(time: params[:time], content: params[:content])
+    redirect '/profile'
   end
 
   # DELETE: /events/5/delete
-  delete "/events/:id/delete" do
-    redirect "/profile"
-  end
+  # delete "/events/:id/delete" do
+  #   get_event
+  #   @event.destory
+  #   redirect "/profile"
+  # end
+
+  delete '/events/:id' do 
+    get_event
+    @event.destroy
+    redirect '/profile'
+  end 
 
 private
 
@@ -60,7 +63,7 @@ private
   end
 
   def redirect_if_not_authorized
-    if @event.user_id != current_user
+    if @event.user_id != current_user[:id]
         flash[:error] = "You cant make this edit, you don't own this"
         redirect '/'
     end
