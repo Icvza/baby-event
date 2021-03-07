@@ -2,19 +2,15 @@
 
 
 <form action="/events" method="post">
-
 <br>Content:<textarea name="content"></textarea>
-
 <br> Date:<input type=datetime name="time">
-
-WHOOOOOOO DID IT?
+select baby: 
 
    <% @all_baby.each do |baby| %>
         <input type="checkbox" name="baby_id" value="<%= baby.id %>"> <%=baby.name%>
    <%end%>
 
 <input type=submit value="Log event">
-
 </form>
 
 

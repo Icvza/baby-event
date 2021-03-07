@@ -43,13 +43,6 @@ class EventsController < ApplicationController
     redirect '/profile'
   end
 
-  # DELETE: /events/5/delete
-  # delete "/events/:id/delete" do
-  #   get_event
-  #   @event.destory
-  #   redirect "/profile"
-  # end
-
   delete '/events/:id' do 
     get_event
     @event.destroy
