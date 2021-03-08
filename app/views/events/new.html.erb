@@ -1,16 +1,16 @@
-<h1> Log the new event </h1>
 
 
-<form action="/events" method="post">
-<br>Content:<textarea name="content"></textarea>
-<br> Date:<input type=datetime name="time">
-select baby: 
 
-   <% @all_baby.each do |baby| %>
-        <input type="checkbox" name="baby_id" value="<%= baby.id %>"> <%=baby.name%>
-   <%end%>
+<form class="login-form"  action="/events" method="post">
+   <div class="login-form__content">
+      <div class="login-form__header">Log event</div>
+      <textarea class="login-form__input" name="content"></textarea>
+      <input class="login-form__input" type=datetime name="time" placeholder="Date">
+       <% @all_baby.each do |baby| %>
+            <input class="event-baby" type="checkbox" name="baby_id" value="<%= baby.id %>" > <%=baby.name%>
+       <%end%>
 
-<input type=submit value="Log event">
+<button class="login-form__button" type="submit">Log Event</button>
 </form>
 
 

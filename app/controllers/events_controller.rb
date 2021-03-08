@@ -27,8 +27,13 @@ class EventsController < ApplicationController
   end
 
   get "/events/:id" do
+    if logged_in? 
     get_event
     erb :"/events/show.html"
+    else 
+      redirect '/profile'
+    end
+
   end
 
   get "/events/:id/edit" do

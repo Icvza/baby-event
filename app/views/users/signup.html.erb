@@ -1,11 +1,14 @@
-<h1>signup</h1>
-<form action="/signup" method="post">
 
-Enter name:<input type=text name="name">
-Create username:<input type=text name="username">
-Enter email:<input type=email name="email">
-Create Password:<input type=password name="password">
-<input type=submit value="signup">
-
-
+<form class="signup-form" action="/signup" method="post">
+    <div class="signup-form__content">
+        <div class="signup-form__header"> Create an account </div>
+        <input class="signup-form__iput" type=text name="name" placeholder="name">
+        <input class="signup-form__iput" type=text name="username" placeholder="username">
+        <input class="signup-form__iput" type=email name="email" placeholder="email">
+        <input class="signup-form__iput" type=password name="password" placeholder="password">
+        <button class="signup-form__button" type="submit">Signup</button>
+        <div class="signup-form__links">
+            <a href="http://127.0.0.1:9393/login" class="signup-form__link">Already have a account?login</a>
+        </div>
+    </div>
 </form>

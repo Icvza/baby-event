@@ -1,10 +1,13 @@
-<h1>Edit your post </h1>
 
-<form action="/events/<%= @event.id %>" method="post">
-<input type="hidden" name="_method" value="patch">
-<br>Content:<textarea name="content"><%= @event.content%></textarea>
-<br> Date:<input type=datetime name="time" value="<%= @event.time%>"> 
-<input type=submit value="Edit event">
+
+<form class="signup-form" action="/events/<%= @event.id %>" method="post">
+    <div class="signup-form__content">
+        <div class="signup-form__header"> Edit Event </div>
+        <input type="hidden" name="_method" value="patch">
+        <textarea class="signup-form__iput" name="content"><%= @event.content%></textarea>
+        <input class="signup-form__iput" type=datetime name="time" value="<%= @event.time%>"> 
+        <input type=submit value="Edit event">
+    </div>
 </form>
 
 

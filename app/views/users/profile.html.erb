@@ -1,32 +1,39 @@
 
-<h1>Hello <%="#{current_user.name}"%></h1>
+<h1 class="profile_name">Hello <%="#{current_user.name}"%></h1>
 <br> <a href="http://127.0.0.1:9393/logout" > logout</a>
 <br> <a href="http://127.0.0.1:9393/babies/new" > Add a new baby</a>
 <br> <a href="http://127.0.0.1:9393/events/new" > Log a new event </a>
 <br>
 <br>
 
-<br> <h3> Kids </h3>
+<div class="show_kids">
+<h3> Kids </h3>
 <%user_babies.each do |name|%>
-<li><%=name%>
-<%end %>
-<li>
+<br><%=name%>
+<%end%>
+</div>
+<br>
+<br>
+
+
+<div class="container">
+    <% user_events.each do |p| %>
+            <% f = Baby.find_by(id:p.baby_id) %>
+            Baby: <%= f.name %>
+            <br> <%= p.time %>
+            <br> <%= p.content %> 
+                    <% if current_user == p.user %>
+                        <a href="/events/<%= p.id %>/edit">Edit</a> 
+                        <form action="/events/<%= p.id %>" method="post">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="submit" value="Delete Post">
+                        </form>
+                    <% end %>
+    <% end %>
+</div>
 
 
 
-<% user_events.each do |p| %>
-    <p><%= p.content %> - <%= p.id %> 
-        <% if current_user == p.user %>
-            <a href="/events/<%= p.id %>/edit">Edit</a> 
-            <form action="/events/<%= p.id %>" method="post">
-                <input type="hidden" name="_method" value="delete">
-                <input type="submit" value="Delete Post">
-            </form>
-        <% end %>
-    <%f = Baby.find_by(id:p.baby_id)%>
-        by:<%= f.name %>
-    </p>
-<% end %>
 
 
 

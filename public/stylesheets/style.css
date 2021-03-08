@@ -1,0 +1,218 @@
+
+html { 
+    background: rgb(251,185,230);
+    background: linear-gradient(11deg, rgba(251,185,230,1) 45%, rgba(94,171,251,1) 66%);
+}
+
+
+.login-form,
+.login-form * {
+    box-shadow: border-box; 
+    font-family: sans-serif;
+}
+
+.login-form {
+    max-width: 350px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 15 px rgba(0, 0, 0, 0.15);
+}
+
+.login-form__content{
+    padding:30px;
+    background: #eeeeee;
+
+}
+
+.login-form__header{
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333333;
+}
+
+.login-form__input{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #dddddd;
+    outline: none;
+    transition: border-color 0.5s;
+}
+
+.login-form__button{
+    padding: 10px;
+    color: #333333;
+    font-weight: bold;
+    background: rgb(161,130,208);
+    background: linear-gradient(11deg, rgba(161,130,208,1) 45%, rgba(19,161,240,1) 85%);
+    width: 100%;
+    border: none;
+    outline: none;
+    border: 5px;
+    cursor: pointer;
+}
+
+.login-form__links {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.login-form__link{
+    font-size: 0.9em;
+    color: #333333;
+    text-decoration: none;
+}
+
+.middle{
+    text-align: center;
+}
+
+.middle__header{
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.signup-form,
+.signup-form * {
+    box-shadow: border-box;
+    font-family: sans-serif;
+}
+
+.signup-form {
+    max-width: 800px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 15 px rgba(0, 0, 0, 0.15);
+}
+
+.signup-form__content{
+    padding:30px;
+    background: #eeeeee;
+}
+
+.signup-form__header{
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333333;
+}
+
+.sigup-form__input{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #dddddd;
+    outline: none;
+    transition: border-color 0.5s;
+}
+.signup-form__button{
+    padding: 8px;
+    color: #333333;
+    font-weight: bold;
+    background: rgb(161,130,208);
+    background: linear-gradient(11deg, rgba(161,130,208,1) 45%, rgba(19,161,240,1) 85%);
+    width: 100%;
+    border: none;
+    outline: none;
+    border: 10px;
+    cursor: pointer;
+}
+
+.signup-form__links {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.signup-form__link {
+    font-size: 0.9em;
+    color: #333333;
+    text-decoration: none;
+}
+
+
+.event-baby {
+    width: 50%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #dddddd;
+    outline: none;
+    transition: border-color 0.5s;
+}
+
+
+.profile_view,
+.profile_view * {
+    box-shadow: border-box; 
+    font-family: sans-serif;
+}
+
+.profile_view {
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 15 px rgba(0, 0, 0, 0.15);
+    padding:30px;
+    background: #eeeeee;
+}
+
+
+.event,
+.event * {
+    box-shadow: border-box; 
+    font-family: sans-serif;
+}
+
+.event {
+    max-width: 350px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 15 px rgba(0, 0, 0, 0.15);
+}
+
+.event_content {
+    padding:30px;
+    background: #eeeeee;
+}
+
+.container {
+    text-align: center;
+    box-shadow: border-box; 
+    font-family: sans-serif;
+    padding:30px;
+    background: #eeeeee;
+    max-width: 350px;
+    margin: 0 auto;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 15 px rgba(0, 0, 0, 0.15);
+}
+
+.profile_name { 
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0 auto;
+}

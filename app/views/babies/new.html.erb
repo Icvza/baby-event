@@ -1,7 +1,10 @@
-<h1>Create a new baby</h1>
 
-<form action="/new_baby" method="post">
-Enter name:<input type=text name="name">
-Date of birth:<input type=date name="DOB">
-<input type=submit value="Add New Baby">
+
+<form class="login-form" action="/new_baby" method="post">
+    <div class="login-form__content">
+        <div class="login-form__header">Register a new baby</div>
+        <input class="login-form__input" type=text name="name" placeholder="name" > 
+        <input class="login-form__input" type=date name="DOB" placeholder="Date of birth">
+        <button class="login-form__button" type=submit>Add a new baby</button>
+    </div>
 </form>

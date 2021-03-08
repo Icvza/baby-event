@@ -1,11 +1,23 @@
-<h1>Login</h1>
 
-<form action="/login" method="post">
-    Enter Username: <input type=text name="username" >
-    Enter Password: <input type=password name="password" >
-    <input type=submit value="Login" >
+
+
+<form class="login-form"  action="/login" method="post">
+    <div class="login-form__content">
+        <div class="login-form__header">Login to your account</div>
+        <input class="login-form__input" type=text name="username" placeholder="Username" >
+        <input class="login-form__input" type=password name="password" placeholder="Password" >
+        <button class="login-form__button" type="submit">Login</button>
+        <div class="login-form__links">
+            <a href="http://127.0.0.1:9393/signup" class="login-form__link">signup</a>
+        </div>
+    </div>
 </form>
 
-<br> <a href="http://127.0.0.1:9393/signup" > signup</a>
+
+
+
+
+
+
 
 
