@@ -18,4 +18,35 @@ class BabiesController < ApplicationController
       end
   end
 
+  get "/babies/:id/edit" do
+    get_babies
+    erb :"/babies/edit.html"
+  end
+
+  patch "/babies/:id" do
+    get_babies
+    redirect_if_not_authorized
+    @babies.update(name: params[:name], DOB: params[:DOB])
+    redirect '/profile'
+  end
+
+  delete '/babies/:id' do 
+    get_babies
+    @babies.destroy
+    redirect '/'
+  end
+
+  private
+
+   def get_babies
+     @babies = Baby.find_by(id:params[:id])
+   end
+
+   def redirect_if_not_authorized
+      if @babies.user_id != current_user[:id]
+          flash[:error] = "You cant make this edit, you don't own this"
+          redirect '/'
+      end
+   end 
+
 end

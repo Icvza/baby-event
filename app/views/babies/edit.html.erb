@@ -1,0 +1,16 @@
+<form class="login-form" action="/babies/<%= @babies.id %>" method="post">
+    <div class="login-form__content">
+        <div class="login-form__header">Edit Baby </div>
+        <input type="hidden" name="_method" value="patch">
+        <input class="login-form__input" type=text name="name" placeholder= <%= @babies.name %> > 
+        <input class="login-form__input" type=date name="DOB" placeholder=<%= @babies.DOB %> >
+        <button class="login-form__button" type=submit>Edit baby</button>
+    </div>
+</form>
+
+<form action="/babies/<%= @babies.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete">
+</form>
+
+<%binding.pry%>

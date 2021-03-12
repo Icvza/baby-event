@@ -1,5 +1,5 @@
 
-<h1 class="profile_name">Hello <%="#{current_user.name}"%></h1>
+<h1 class="profile_name"> Hello <%="#{current_user.name}"%></h1>
 <br> <a href="http://127.0.0.1:9393/logout" > logout</a>
 <br> <a href="http://127.0.0.1:9393/babies/new" > Add a new baby</a>
 <br> <a href="http://127.0.0.1:9393/events/new" > Log a new event </a>
@@ -8,12 +8,16 @@
 
 <div class="show_kids">
 <h3> Kids </h3>
-<%user_babies.each do |name|%>
-<br><%=name%>
-<%end%>
 </div>
-<br>
-<br>
+
+<% users_babies.each do |b| %>
+
+    <br> <%= b.name%>
+    <%= b.DOB%>
+    <a href="/babies/<%= b.id %>/edit">Edit</a>
+   
+<% end %>
+
 
 
 <div class="container">
