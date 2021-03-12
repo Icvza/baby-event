@@ -18,6 +18,11 @@ class BabiesController < ApplicationController
       end
   end
 
+  get '/babies/:id' do 
+    get_babies
+    erb :"/babies/show.html"
+  end
+
   get "/babies/:id/edit" do
     get_babies
     erb :"/babies/edit.html"

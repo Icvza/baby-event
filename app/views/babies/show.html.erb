@@ -1,0 +1,17 @@
+<h1 class="profile_name"> Hello <%="#{get_babies.name}"%></h1>
+
+<a href="/profile">Back to profile</a>
+
+<div class="container">
+<% x = Event.where(baby_id: get_babies.id)%>
+<% x.each do |event| %>
+    <%= event.content %>
+    <%= event.time %>
+    <a href="/events/<%= event.id %>/edit">Edit</a>
+<%end%>
+</div>
+
+
+
+
+
