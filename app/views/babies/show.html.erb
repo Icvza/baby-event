@@ -1,4 +1,4 @@
-<h1 class="profile_name"> Hello <%="#{get_babies.name}"%></h1>
+<h1 class="profile_name">  <%="#{get_babies.name}"%></h1>
 
 <a href="/profile">Back to profile</a>
 
@@ -8,6 +8,8 @@
     <%= event.content %>
     <%= event.time %>
     <a href="/events/<%= event.id %>/edit">Edit</a>
+    <br>
+    <br>
 <%end%>
 </div>
 
