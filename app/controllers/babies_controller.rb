@@ -5,7 +5,11 @@ class BabiesController < ApplicationController
   end
 
   get "/babies/new" do
-    erb :"/babies/new.html"
+    if logged_in?
+      erb :"/babies/new.html"
+    else
+      redirect '/login'
+    end
   end
 
   post "/new_baby" do 
@@ -20,17 +24,18 @@ class BabiesController < ApplicationController
 
   get '/babies/:id' do 
     get_babies
+    redirect_if_not_authorized_v2
     erb :"/babies/show.html"
   end
 
   get "/babies/:id/edit" do
     get_babies
+    redirect_if_not_authorized_v2
     erb :"/babies/edit.html"
   end
 
   patch "/babies/:id" do
     get_babies
-    redirect_if_not_authorized
     @babies.update(name: params[:name], DOB: params[:DOB])
     redirect '/profile'
   end
@@ -47,9 +52,8 @@ class BabiesController < ApplicationController
      @babies = Baby.find_by(id:params[:id])
    end
 
-   def redirect_if_not_authorized
+   def redirect_if_not_authorized_v2
       if @babies.user_id != current_user[:id]
-          flash[:error] = "You cant make this edit, you don't own this"
           redirect '/'
       end
    end 

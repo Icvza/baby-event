@@ -42,4 +42,34 @@ class UsersController < ApplicationController
      end
   end
 
+  get '/users/:id/edit' do 
+    if params[:id].to_i == current_user.id 
+      erb :"/users/edit.html"
+    else
+      redirect '/'
+    end
+  end 
+
+  patch "/users/:id" do
+    get_user
+    redirect_if_not_authorized_v3
+    @usersp.update(name: params[:name], username: params[:username], email: params[:email] , password: params[:password])
+    redirect '/profile'
+  end
+
+  private
+
+  def get_user
+    @usersp = User.find_by(id:params[:id])
+  end
+
+  def redirect_if_not_authorized_v3
+     if session[:user_id] != params[:id].to_i
+         redirect '/'
+     end
+  end 
+
+
+
+
 end

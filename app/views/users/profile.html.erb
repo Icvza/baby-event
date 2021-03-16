@@ -1,5 +1,5 @@
 
-<h1 class="profile_name"> Hello <%="#{current_user.name}"%></h1>
+<h1 class="profile_name"> Hello <%="#{current_user.name}"%> <br> <a href="/users/<%= current_user.id %>/edit" > edit </a></h1>
 <br> <a href="http://127.0.0.1:9393/logout" > logout</a>
 <br> <a href="http://127.0.0.1:9393/babies/new" > Add a new baby</a>
 <br> <a href="http://127.0.0.1:9393/events/new" > Log a new event </a>

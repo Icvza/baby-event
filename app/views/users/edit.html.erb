@@ -1,1 +1,16 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+
+
+<form class="signup-form" action="/users/<%= current_user.id %>" method="post">
+    <div class="signup-form__content">
+        <div class="signup-form__header"> update </div>
+        <input type="hidden" name="_method" value="patch">
+        <input class="signup-form__iput" type=text name="name" placeholder=<%= current_user.name%> >
+        <input class="signup-form__iput" type=text name="username" placeholder=<%= current_user.username%> >
+        <input class="signup-form__iput" type=email name="email" placeholder=<%= current_user.email%>>
+        <input class="signup-form__iput" type=password name="password" placeholder="password">
+        <button class="signup-form__button" type="submit">Update</button>
+        <div class="signup-form__links">
+            <a href="/" class="signup-form__link">Go back</a>
+        </div>
+    </div>
+</form>

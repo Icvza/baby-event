@@ -33,7 +33,6 @@ class EventsController < ApplicationController
     else 
       redirect '/profile'
     end
-
   end
 
   get "/events/:id/edit" do
