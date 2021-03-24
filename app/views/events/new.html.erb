@@ -6,13 +6,12 @@
       <div class="login-form__header">Log event</div>
       <textarea class="login-form__input" name="content"></textarea>
       <input class="login-form__input" type=datetime name="time" placeholder="Date">
-       <% @all_baby.each do |baby| %>
+       <% current_user.babies.each do |baby| %>
             <input class="event-baby" type="checkbox" name="baby_id" value="<%= baby.id %>" > <%=baby.name%>
        <%end%>
 
 <button class="login-form__button" type="submit">Log Event</button>
 </form>
-
 
 
 
