@@ -3,14 +3,11 @@
 <a href="/profile">Back to profile</a>
 
 <div class="container">
-<% x = Event.where(baby_id: get_babies.id)%>
-<% x.each do |event| %>
-    <%= event.content %>
-    <%= event.time %>
-    <a href="/events/<%= event.id %>/edit">Edit</a>
-    <br>
-    <br>
-<%end%>
+    <%@babies.events.each do |e|%>
+        <%=e.content%>
+        <%=e.time%>
+    <a href="/events/<%= e.id %>/edit">Edit</a>
+    <%end%>
 </div>
 
 

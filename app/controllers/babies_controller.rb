@@ -13,8 +13,9 @@ class BabiesController < ApplicationController
   end
 
   post "/new_baby" do 
-    @baby = Baby.new(params)
-    @baby.user_id = session[:user_id]
+    # @baby = Baby.new(params)
+    # @baby.user = current_user
+    @baby = current_user.babies.build(params)
     if @baby.save
       redirect '/profile'
     else

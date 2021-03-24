@@ -29,7 +29,11 @@ class EventsController < ApplicationController
   get "/events/:id" do
     if logged_in? 
     get_event
+      if get_event == nil || redirect_if_not_authorized
+        redirect '/profile'
+      else
     erb :"/events/show.html"
+      end
     else 
       redirect '/profile'
     end

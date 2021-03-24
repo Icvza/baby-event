@@ -10,32 +10,35 @@
 <h3> Kids </h3>
 </div>
 
-<% users_babies.each do |b| %>
-
+<% current_user.babies.each do |b| %>
     <br> <%= b.name%>
     <%= b.DOB%>
     <a href="/babies/<%= b.id %>/edit">Edit</a>
-    <a href="/babies/<%= b.id %>">View all events</a>
-   
+    <a href="/babies/<%= b.id %>">View all events</a> 
 <% end %>
 
 
 
+
+
 <div class="container">
-    <% user_events.each do |p| %>
-            <% f = Baby.find_by(id:p.baby_id) %>
-            Baby: <%= f.name %>
-            <br> <%= p.time %>
-            <br> <%= p.content %> 
-                    <% if current_user == p.user %>
-                        <a href="/events/<%= p.id %>/edit">Edit</a> 
-                        <form action="/events/<%= p.id %>" method="post">
-                            <input type="hidden" name="_method" value="delete">
-                            <input type="submit" value="Delete Post">
-                        </form>
-                    <% end %>
+    <% current_user.babies.each do |p| %>
+            Baby: <%= p.name %>
+            <br>
+    <% p.events.each do |e| %>  
+         time: <%= e.time %>
+         content: <%= e.content %>   
+         <br>
+          <a href="/events/<%= e.id %>/edit">Edit</a> 
+          <form action="/events/<%= e.id %>" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <input type="submit" value="Delete Post">
+          </form>     
+       <% end %>            
     <% end %>
 </div>
+
+
 
 
 
